@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa Luận Tốt Nghiệp - Đào Thị Ngọc Mai</title>
+    <style>
+        /* 1. Thiết lập cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #001f3f; /* Màu nền dự phòng */
+        }
+
+        /* 2. Container chính */
+        .slide-container {
+            width: 100vw;
+            height: 100vh;           
+            background: linear-gradient(rgba(0, 31, 63, 0.2), rgba(0, 31, 63, 0.2)), 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+            padding: 30px 50px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        /* 3. Header & Logo (Đã thu nhỏ và chỉnh chữ trắng) */
+        .header {
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            border-left: 4px solid #FFD700;
+            padding-left: 15px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        /* Thu nhỏ icon tròn từ ảnh LogoHaui.jpg */
+        .logo-crop-wrapper {
+            width: 55px;   
+            height: 55px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background: transparent;
+        }
+
+        .school-logo-img {
+            width: 75px; 
+            height: auto;
+            margin-top: -2px;
+        }
+
+        .text-haui {
+            font-size: 40px; 
+            font-weight: 900;
+            color: #ffffff; 
+            margin-left: 8px;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .red-divider {
+            width: 3px;
+            height: 30px;
+            background-color: #EE2D24;
+            margin: 0 12px;
+        }
+
+        .text-economics {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff; 
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+        
+        .school-text-container {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba(255,255,255,0.3);
+            padding-left: 15px;
+        }
+
+        .school-name {
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .sub-school {
+            font-size: 0.9rem;
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        /* 4. Nội dung chính */
+        .main-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            transition: transform 0.1s ease;
+        }
+
+        .document-type {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .major-name {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .topic-container {
+            border-top: 2px solid rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3); 
+            backdrop-filter: blur(4px);
+            margin-bottom: 25px;
+        }
+
+        .topic-label {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .topic-title {
+            font-size: 1.8rem;
+            line-height: 1.4;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+
+        /* 5. Thông tin sinh viên (Font 28px) */
+        .info-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .info-table {
+            border-collapse: separate;
+            border-spacing: 15px 5px;
+            font-size: 28px; 
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 15px 35px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #FFD700;
+            white-space: nowrap;
+        }
+
+        .info-value {
+            font-weight: 500;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        /* 6. Footer & Thanh trang trí */
+        .footer {
+            text-align: center;
+            z-index: 10;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+        }
+
+        .bottom-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #FFD700 70%, transparent 100%);
+        }
+
+        /* 7. Animations */
+        .animate-up {
+            animation: slideUp 0.8s ease-out both;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(40px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div class="header animate-up">
+            <div class="brand-container">
+                <div class="logo-crop-wrapper">
+                    <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo Icon">
+                </div>
+                
+                <div class="text-haui">HaUI</div>
+                
+                <div class="red-divider"></div>
+                
+                <div class="text-economics">
+                    SCHOOL OF<br>ECONOMICS
+                </div>
+            </div>
+
+            <!-- <div class="school-text-container">
+                <div class="school-name">Đại học Công nghiệp Hà Nội</div>
+                <div class="sub-school">Trường Kinh tế</div>
+            </div> -->
+        </div>
+
+        <div class="main-content animate-up" style="animation-delay: 0.2s;">
+            <div class="document-type">KHÓA LUẬN TỐT NGHIỆP</div>
+            <div class="major-name">Ngành: Phân tích dữ liệu kinh doanh</div>
+            
+            <div class="topic-container">
+                <span class="topic-label">ĐỀ TÀI:</span>
+                <h1 class="topic-title">
+                    Các yếu tố ảnh hưởng đến tiếp cận dịch vụ tài chính tại Đông Nam Á <br>
+                    Ứng dụng Machine Learning từ dữ liệu Global Findex
+                </h1>
+            </div>
+
+            <div class="info-section">
+                <table class="info-table">
+                    <tr>
+                        <td class="info-label">Sinh viên thực hiện</td>
+                        <td class="info-value">: Đào Thị Ngọc Mai</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Mã sinh viên</td>
+                        <td class="info-value">: 2022602205</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Lớp - Khóa</td>
+                        <td class="info-value">: 2022DHDLKD01 - K17</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Giảng viên hướng dẫn</td>
+                        <td class="info-value">: ThS. Trương Hoàng Giang</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer animate-up" style="animation-delay: 0.4s;">
+            HÀ NỘI - 2026
+        </div>
+
+        <div class="bottom-accent"></div>
+    </div>
+
+    <script>
+        // Hiệu ứng tương tác 3D nhẹ nhàng cho phần nội dung chính
+        const slide = document.querySelector('.slide-container');
+        const content = document.querySelector('.main-content');
+
+        slide.addEventListener('mousemove', (e) => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 80;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 80;
+            content.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        slide.addEventListener('mouseleave', () => {
+            content.style.transition = 'transform 0.5s ease';
+            content.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+    </script>
+    <script src="MaiDan.js"></script>
+</body>
+</html>

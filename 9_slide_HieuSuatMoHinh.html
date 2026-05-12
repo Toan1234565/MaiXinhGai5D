@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu suất mô hình - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THIẾT LẬP CƠ BẢN */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100vh; overflow: hidden;  }
+
+        .slide-container {
+            width: 100%; height: 100vh;
+            background: 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png') center/cover;
+            padding: 25px 50px; color: white; position: relative;
+            display: flex; flex-direction: column;
+            animation: fadeInPage 1s ease-out;
+        }
+
+        /* 2. HEADER ĐỒNG BỘ HaUI */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 12px; margin-bottom: 20px;
+            animation: slideDown 0.8s ease-out;
+        }
+        .brand-container { display: flex; align-items: center; }
+        .logo-crop-wrapper { width: 45px; height: 45px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
+        .school-logo-img { width: 65px; height: auto; margin-top: -2px; }
+        .text-haui { font-size: 32px; font-weight: 900; color: #ffffff; margin-left: 8px; line-height: 1; }
+        .red-divider { width: 3px; height: 25px; background-color: #EE2D24; margin: 0 10px; }
+        .text-economics { font-size: 11px; font-weight: 700; color: #ffffff; text-transform: uppercase; line-height: 1.1; }
+        .slide-title-area h1 { font-size: 1.4rem; text-transform: uppercase; color: #FFD700; letter-spacing: 1.5px; text-align: right; }
+
+        /* 3. LAYOUT NỘI DUNG */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 20px; flex-grow: 1;
+            margin-bottom: 30px;
+        }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        h2 { 
+            color: #FFD700; font-size: 1.1rem; margin-bottom: 12px; 
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+            border-left: 4px solid #FFD700; padding-left: 10px;
+        }
+
+        .highlight { color: #FFD700; font-weight: bold; }
+
+        /* Table Style */
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .comparison-table th { text-align: left; padding: 10px; background: rgba(255, 215, 0, 0.15); color: #FFD700; border: 1px solid rgba(255,255,255,0.1); }
+        .comparison-table td { padding: 8px 10px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .comparison-table .model-name { text-align: left; font-weight: bold; color: #fff; }
+        .comparison-table .best-val { color: #00FF7F; font-weight: bold; }
+
+        /* Optimal Model Highlight */
+        .optimal-box {
+            background: rgba(0, 255, 127, 0.05);
+            border: 2px solid #00FF7F;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+        }
+        .winner-title { font-size: 1.2rem; font-weight: 800; color: #00FF7F; text-transform: uppercase; }
+        .winner-name { font-size: 2.2rem; font-weight: 900; color: #fff; text-shadow: 0 0 15px rgba(0,255,127,0.5); }
+        
+        /* Metric Badges */
+        .badge-container { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .badge { background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(0,255,127,0.3); }
+
+        /* Conclusion Text */
+        .insight-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 4px solid #FFD700;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 8px; background: linear-gradient(90deg, #FFD700 60%, transparent 100%);
+        }
+
+        /* 4. ANIMATIONS */
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .glass-card:nth-child(1) { animation-delay: 0.3s; }
+        .glass-card:nth-child(2) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <div class="header">
+        <div class="brand-container">
+            <div class="logo-crop-wrapper">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <h1>Chương 3: KẾT QUẢ NGHIÊN CỨU VÀ THẢO LUẬN</h1>
+        <div style="text-align: right;">
+            <div class="highlight">Đào Thị Ngọc Mai</div>
+            <div style="font-size: 0.8rem;">Dữ liệu & Biến số</div>
+        </div>
+            
+    
+    </div>
+
+    <div class="main-layout">
+        
+        <div class="glass-card">
+            <h2 style="color:#fff;;">3.2 SO SÁNH HIỆU SUẤT MÔ HÌNH</h2>
+            <h2><i class="fas fa-table"></i> Bảng đối chiếu hiệu suất tổng hợp</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Mô hình thực nghiệm</th>
+                        <th>Accuracy</th>
+                        <th>Recall</th>
+                        <th>F1-Score</th>
+                        <th>AUC-ROC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="model-name">Logistic Regression</td>
+                        <td>0.7529</td>
+                        <td>0.8166</td>
+                        <td>0.8128</td>
+                        <td>0.8406</td>
+                    </tr>
+                    <tr style="background: rgba(255,255,255,0.03);">
+                        <td class="model-name">Logistic Reg + <span class="highlight">SMOTE</span></td>
+                        <td>0.7523</td>
+                        <td>0.6947</td>
+                        <td>0.7865</td>
+                        <td>0.8429</td>
+                    </tr>
+                    <tr>
+                        <td class="model-name">Random Forest</td>
+                        <td class="best-val">0.7629</td>
+                        <td>0.8100</td>
+                        <td class="best-val">0.8177</td>
+                        <td>0.8452</td>
+                    </tr>
+                    <tr style="background: rgba(255,255,255,0.03);">
+                        <td class="model-name">Random Forest + <span class="highlight">SMOTE</span></td>
+                        <td>0.7269</td>
+                        <td>0.7826</td>
+                        <td>0.7901</td>
+                        <td>0.8173</td>
+                    </tr>
+                    <tr>
+                        <td class="model-name">XGBoost</td>
+                        <td>0.7362</td>
+                        <td class="best-val">0.8960</td>
+                        <td>0.8169</td>
+                        <td class="best-val">0.8481</td>
+                    </tr>
+                    <tr style="background: rgba(0, 255, 127, 0.1);">
+                        <td class="model-name"><i class="fas fa-star" style="color:#00FF7F;"></i> XGBoost + <span class="highlight">SMOTE</span></td>
+                        <td>0.7567</td>
+                        <td>0.7911</td>
+                        <td>0.8103</td>
+                        <td>0.8400</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="insight-box">
+                <i class="fas fa-lightbulb highlight"></i> <b>Nhận xét:</b> Các mô hình phi tuyến (RF, XGB) cho kết quả vượt trội so với LR. Việc áp dụng <span class="highlight">SMOTE</span> giúp cân bằng khả năng nhận diện lớp thiểu số, giải quyết bài toán mất cân bằng dữ liệu tài chính tại ĐNA.
+            </div>
+        </div>
+
+        <div class="glass-card optimal-box">
+            <div class="winner-title">Mô hình tối ưu đề xuất</div>
+            <div class="winner-name">XGBoost + SMOTE</div>
+            
+            <div class="badge-container">
+                <div class="badge">Accuracy: 75.67%</div>
+                <div class="badge">Recall: 79.11%</div>
+            </div>
+            
+            <div style="text-align: left; margin-top: 10px; font-size: 0.95rem; color: #eee;">
+                <p style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#00FF7F;"></i> <b>Độ ổn định cao:</b> Duy trì hiệu suất tốt trên cả dữ liệu gốc và dữ liệu cân bằng.</p>
+                <p style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#00FF7F;"></i> <b>Khả năng tổng quát hóa:</b> Xử lý tốt các tương tác phi tuyến giữa các biến nhân khẩu học và công nghệ.</p>
+                <p><i class="fas fa-check-circle" style="color:#00FF7F;"></i> <b>Nhận diện tốt rủi ro:</b> Recall đạt mức cao, hạn chế bỏ sót các đối tượng yếu thế trong tiếp cận tài chính.</p>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<script src="MaiDan.js"></script>
+</body>
+</html>

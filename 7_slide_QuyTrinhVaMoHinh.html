@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy trình xử lý & Mô hình - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THIẾT LẬP CƠ BẢN */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100vh; overflow: hidden; }
+
+        .slide-container {
+            width: 100%; height: 100vh;
+            background: 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png') center/cover;
+            padding: 30px 50px; color: white; position: relative;
+            display: flex; flex-direction: column;
+            animation: fadeInPage 1s ease-out;
+        }
+
+        /* 2. HEADER CẢI TIẾN - CĂN GIỮA TIÊU ĐỀ */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr; /* Chia 3 cột để căn giữa cột 2 */
+            align-items: center;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand img { height: 50px; border-radius: 5px; }
+        
+        /* Tiêu đề chương được căn giữa và làm to */
+       
+
+        .header-right { text-align: right; font-size: 0.8rem; opacity: 0.8; }
+
+        /* 3. LAYOUT NỘI DUNG */
+        .content-area {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 25px;
+            flex-grow: 1;
+            margin-bottom: 30px;
+        }
+
+        .section-box { display: flex; flex-direction: column; gap: 20px; }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        h2 { 
+            color: #FFD700; font-size: 1.3rem; margin-bottom: 15px; 
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3); padding-bottom: 8px;
+        }
+
+        .highlight { color: #FFD700; font-weight: bold; }
+
+        .pipeline-step {
+            display: flex; align-items: center; gap: 15px;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 12px; border-radius: 10px; margin-bottom: 10px;
+            border-left: 5px solid #FFD700;
+        }
+        .step-icon { font-size: 1.5rem; color: #FFD700; width: 35px; text-align: center; }
+        
+        .model-card {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 15px; border-radius: 12px; margin-bottom: 15px;
+        }
+        .model-card h3 { color: #FFD700; font-size: 1.2rem; margin-bottom: 5px; }
+        .model-desc { font-size: 1rem; color: #eee; line-height: 1.4; }
+
+        .formula {
+            font-family: "Times New Roman", serif; font-style: italic;
+            color: #FFD700; background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 5px;
+            display: inline-block; margin-top: 5px; font-size: 0.95rem;
+        }
+
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 10px; background: linear-gradient(90deg, #FFD700 70%, transparent 100%);
+        }
+
+        /* 4. ANIMATIONS */
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .glass-card:nth-child(1) { animation-delay: 0.2s; }
+        .section-box:nth-child(2) .glass-card { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <div class="header">
+        <div class="brand">
+            <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" alt="Logo">
+            <div>
+                <div style="font-weight: 900; font-size: 1.3rem;">HaUI</div>
+                <div style="font-size: 0.65rem; letter-spacing: 1px;">SCHOOL OF ECONOMICS</div>
+            </div>
+        </div>
+        
+        <h1>Chương 2: Phương pháp nghiên cứu</h1>
+        <div style="text-align: right;">
+            <div class="highlight">Đào Thị Ngọc Mai</div>
+            <div style="font-size: 0.8rem;">Dữ liệu & Biến số</div>
+        </div>
+        
+    </div>
+
+    <div class="content-area">
+        <div class="section-box">
+            <div class="glass-card" style="flex-grow: 1;">
+                <h2><i class="fas fa-stream"></i>2.3 Quy trình xử lý dữ liệu</h2>
+                
+                <div class="pipeline-step">
+                    <div class="step-icon"><i class="fas fa-broom"></i></div>
+                    <div>
+                        <div class="highlight">1. Làm sạch & Lọc (Cleaning)</div>
+                        <div style="font-size: 0.95rem;">Lọc khu vực ĐNA, loại bỏ Missing Values (N=8.052).</div>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-icon"><i class="fas fa-cut"></i></div>
+                    <div>
+                        <div class="highlight">2. Xử lý ngoại lệ (IQR Method)</div>
+                        <div class="formula">IQR = Q3 - Q1 | Khoảng: [Q1-1.5*IQR, Q3+1.5*IQR]</div>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div>
+                        <div class="highlight">3. SMOTE (Xử lý mất cân bằng)</div>
+                        <div style="font-size: 0.95rem;">Tạo mẫu tổng hợp lớp thiểu số nhằm cân bằng tập huấn luyện.</div>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-icon"><i class="fas fa-vial"></i></div>
+                    <div>
+                        <div class="highlight">4. Tối ưu hóa (GridSearchCV)</div>
+                        <div style="font-size: 0.95rem;">Kết hợp 5-fold Cross-validation để tìm tham số tối ưu.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="glass-card" style="flex-grow: 1;">
+                <h2><i class="fas fa-microchip"></i>2.4 Thuật toán đề xuất</h2>
+                
+                <div class="model-card">
+                    <h3>1. Logistic Regression (LR)</h3>
+                    <div class="model-desc">Mô hình nền tảng, dễ diễn giải quan hệ tuyến tính.</div>
+                    <div class="formula">P(Y=1|X) = 1 / (1 + e<sup>-(β₀ + ΣβᵢXᵢ)</sup>)</div>
+                </div>
+
+                <div class="model-card">
+                    <h3>2. Random Forest (RF)</h3>
+                    <div class="model-desc">Ensemble Learning (Bagging). Giảm overfitting, xử lý tốt quan hệ phi tuyến phức tạp.</div>
+                </div>
+
+                <div class="model-card" style="border-color: #EE2D24; background: rgba(238, 45, 36, 0.1);">
+                    <h3>3. XGBoost (Extreme Gradient Boosting)</h3>
+                    <div class="model-desc">Thuật toán Boosting hiệu suất cao, tối ưu hóa mạnh mẽ thông qua Regularization.</div>
+                </div>
+
+                <p style="font-size: 0.9rem; font-style: italic; opacity: 0.9; margin-top: 10px;">
+                    * Kết hợp giải thích tầm quan trọng của biến số bằng phương pháp <span class="highlight">SHAP Value</span>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-accent"></div>
+    <div style="position: absolute; bottom: 20px; right: 50px; font-size: 1rem; font-weight: bold; color: #FFD700;">
+        SVTH: ĐÀO THỊ NGỌC MAI - HaUI 2026
+    </div>
+</div>
+<script src="MaiDan.js"></script>
+</body>
+</html>

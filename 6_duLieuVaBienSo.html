@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dữ liệu & Biến số - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body, html { height: 100vh; overflow: hidden;  }
+
+        .dashboard-container {
+            width: 100%; height: 100vh;
+             background: 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png') center/cover;
+            padding: 25px 40px; color: white; display: flex; flex-direction: column;
+        }
+
+        /* --- Header chuẩn HaUI --- */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #FFD700; padding-bottom: 10px; margin-bottom: 15px;
+        }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand img { height: 45px; border-radius: 5px; }
+        .header h1 { font-size: 1.4rem; text-transform: uppercase; color: #FFD700; }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px; flex-grow: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border-radius: 12px; border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 15px; display: flex; flex-direction: column;
+        }
+
+        h2 { font-size: 1.1rem; color: #FFD700; margin-bottom: 12px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .highlight { color: #FFD700; font-weight: bold; }
+        
+        /* Table Style */
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; color: #e0e0e0; }
+        th { background: rgba(255, 215, 0, 0.2); color: #FFD700; text-align: left; padding: 8px; }
+        td { padding: 6px 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+        /* Pipeline Flow */
+        .pipeline { display: flex; flex-direction: column; gap: 8px; }
+        .step { 
+            display: flex; align-items: center; gap: 10px; 
+            background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px;
+            font-size: 0.9rem; border-left: 3px solid #FFD700;
+        }
+
+        .math { font-family: "Times New Roman", serif; font-style: italic; color: #FFD700; }
+        
+        .footer { display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.8rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header">
+        <div class="brand">
+            <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" alt="Logo">
+            <div>
+                <div style="font-weight: 900; font-size: 1.2rem;">HaUI</div>
+                <div style="font-size: 0.6rem; letter-spacing: 1px;">SCHOOL OF ECONOMICS</div>
+            </div>
+        </div>
+        <h1>Chương 2: Phương pháp nghiên cứu</h1>
+        <div style="text-align: right;">
+            <div class="highlight">Đào Thị Ngọc Mai</div>
+            <div style="font-size: 0.8rem;">Dữ liệu & Biến số</div>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        <div class="card">
+            <h2><i class="fas fa-database"></i> 2.1 Nguồn dữ liệu</h2>
+            <div style="font-size: 0.95rem; line-height: 1.6;">
+                <p>• <span class="highlight">Gốc:</span> Global Findex Database 2021 (World Bank).</p>
+                <p>• <span class="highlight">Mô phỏng 2025:</span> Tái cấu trúc dựa trên xu hướng thực tế Đông Nam Á.</p>
+                <p>• <span class="highlight">Phạm vi:</span> Dữ liệu vi mô (Microdata) cấp độ cá nhân.</p>
+                <div style="margin-top: 15px; display: flex; justify-content: space-around; text-align: center;">
+                    <div style="background: rgba(255,215,0,0.1); padding: 10px; border-radius: 8px;">
+                        <div style="font-size: 1.2rem;" class="highlight">144.090</div>
+                        <div style="font-size: 0.7rem;">Quan sát gốc</div>
+                    </div>
+                    <div style="background: rgba(0,255,127,0.1); padding: 10px; border-radius: 8px; border: 1px solid #00FF7F;">
+                        <div style="font-size: 1.2rem; color: #00FF7F; font-weight: bold;">8.052</div>
+                        <div style="font-size: 0.7rem;">Sau lọc (ĐNA)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="grid-row: span 2;">
+            <h2><i class="fas fa-list-ul"></i> 2.2 Danh mục biến số chính</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ký hiệu</th>
+                        <th>Loại biến</th>
+                        <th>Mô tả (0/1)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">account</td>
+                        <td>Phụ thuộc</td>
+                        <td>Sở hữu tài khoản tài chính</td>
+                    </tr>
+                    <tr>
+                        <td>female</td>
+                        <td>Nhị phân</td>
+                        <td>Giới tính (1 = Nữ)</td>
+                    </tr>
+                    <tr>
+                        <td>age</td>
+                        <td>Định lượng</td>
+                        <td>Độ tuổi (15 - 100)</td>
+                    </tr>
+                    <tr>
+                        <td>inc_q</td>
+                        <td>Phân loại</td>
+                        <td>5 nhóm thu nhập</td>
+                    </tr>
+                    <tr>
+                        <td>educ</td>
+                        <td>Phân loại</td>
+                        <td>Trình độ học vấn (0-2)</td>
+                    </tr>
+                    <tr>
+                        <td>urbanicity</td>
+                        <td>Nhị phân</td>
+                        <td>Thành thị (1) / Nông thôn (0)</td>
+                    </tr>
+                    <tr>
+                        <td>internet_use</td>
+                        <td>Nhị phân</td>
+                        <td>Có sử dụng Internet</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">account_mob</td>
+                        <td>Giải thích</td>
+                        <td>Tài khoản qua di động</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.75rem; margin-top: 10px; font-style: italic; opacity: 0.8;">
+                * Biến <span class="highlight">account_mob</span> được kiểm định đa cộng tuyến nghiêm ngặt trước khi đưa vào mô hình.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-microchip"></i> 2.3 Quy trình xử lý (Pipeline)</h2>
+            <div class="pipeline">
+                <div class="step">
+                    <span class="highlight">1.</span> Làm sạch: Loại bỏ Missing values & Outliers (IQR)
+                </div>
+                <div class="step">
+                    <span class="highlight">2.</span> Chuẩn hóa: Standardization <span class="math">z = (x - μ) / σ</span>
+                </div>
+                <div class="step">
+                    <span class="highlight">3.</span> Chia tập dữ liệu: <span class="highlight">80% Train / 20% Test</span>
+                </div>
+                <div class="step">
+                    <span class="highlight">4.</span> Xử lý mất cân bằng: Kỹ thuật <span class="highlight">SMOTE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<script src="MaiDan.js"></script>
+</body>
+</html>

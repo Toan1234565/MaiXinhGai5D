@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <style>
+        /* Container bọc logo */
+        .logo-wrapper {
+            display: inline-flex;
+            align-items: center;
+            overflow: hidden; /* Giúp xóa bỏ phần nền thừa bên ngoài */
+            background: transparent; /* Đảm bảo nền trang trong suốt */
+        }
+
+        .cropped-logo {
+            /* Điều chỉnh kích thước hiển thị */
+            width: 250px; 
+            height: 180px;
+            
+            /* Cắt ảnh: chỉ lấy phần bên trái (logo vàng + chữ HaUI) */
+            object-fit: cover;
+            object-position: 0% 50%; 
+            
+            /* Lọc bỏ nền trắng của ảnh (nếu ảnh là JPG chưa tách nền) */
+            mix-blend-mode: multiply; 
+        }
+
+        /* Container chứa text đi kèm nếu bạn muốn tự viết lại tên trường cho nét */
+        .school-info {
+            margin-left: -20px; /* Căn chỉnh khoảng cách với logo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366; /* Màu xanh đặc trưng của HaUI */
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-wrapper">
+        <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoTruong.jpg" 
+             class="cropped-logo" 
+             alt="HaUI Logo">
+             
+        </div>
+
+</body>
+</html>

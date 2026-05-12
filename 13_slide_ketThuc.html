@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết luận & Cảm ơn - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THIẾT LẬP CHUNG */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        
+        body, html { 
+            height: 100vh; 
+            width: 100vw;
+            overflow: hidden; 
+            background-color: #000; 
+        }
+
+        .slide-container {
+            width: 100%; 
+            height: 100vh;
+            /* Lưu ý: Thay đường dẫn ảnh của bạn vào đây hoặc dùng ảnh online bên dưới để test */
+            background: 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png') center/cover;
+            padding: 30px 50px; 
+            color: white; 
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+            animation: fadeInPage 1s ease-out;
+        }
+
+        /* 2. HEADER ĐỒNG BỘ */
+        .header {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.5);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .brand-container { display: flex; align-items: center; }
+        .logo-placeholder { 
+            width: 50px; height: 50px; 
+            background: #fff; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center;
+            margin-right: 12px; overflow: hidden;
+        }
+        .logo-placeholder img { width: 100%; height: auto; }
+        
+        .text-haui { font-size: 35px; font-weight: 900; color: #ffffff; letter-spacing: 1px; }
+        .red-divider { width: 3px; height: 30px; background-color: #EE2D24; margin: 0 15px; }
+        .text-economics { font-size: 12px; font-weight: 700; color: #ffffff; text-transform: uppercase; line-height: 1.2; }
+
+        /* 3. NỘI DUNG CHÍNH (KẾT THÚC) */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .thanks-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            animation: slideUp 1s ease-out;
+        }
+
+        .thanks-text {
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .sub-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .qa-section {
+            margin: 20px 0;
+            padding: 20px;
+            border-top: 1px dashed rgba(255,215,0,0.5);
+            border-bottom: 1px dashed rgba(255,215,0,0.5);
+        }
+
+        .qa-section h2 {
+            font-size: 1.5rem;
+            color: #FFD700;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* 4. THÔNG TIN LIÊN HỆ */
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .contact-item i { color: #FF4500; }
+        .contact-item:hover i { color: #000; }
+
+        /* FOOTER TRANG TRÍ */
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 10px; 
+            background: linear-gradient(90deg, #FFD700, #EE2D24, #FFD700);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { 
+            from { transform: translateY(50px); opacity: 0; } 
+            to { transform: translateY(0); opacity: 1; } 
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <!-- Header -->
+    <div class="header">
+        <div class="brand-container">
+            <div class="logo-placeholder">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <div class="slide-title-area">
+            <p style="text-align: right; font-weight: bold; color: #FFD700;">KẾT THÚC BÁO CÁO</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="thanks-card">
+            <h1 class="thanks-text">Trân trọng cảm ơn!</h1>
+            <p class="sub-text">Em xin chân thành cảm ơn Quý Thầy/Cô và Hội đồng đã lắng nghe.</p>
+
+            <div class="qa-section">
+                <i class="fas fa-comments" style="font-size: 3rem; color: #FFD700;"></i>
+                <h2>QUÝ THẦY CÔ CÓ CÂU HỎI NÀO KHÔNG?</h2>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>SV: Đào Thị Ngọc Mai</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>ngocmai.haui@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-school"></i>
+                    <span>HaUI - Economics</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trang trí chân trang -->
+    <div class="footer-accent"></div>
+</div>
+<script src="MaiDan.js"></script>
+</body>
+</html>

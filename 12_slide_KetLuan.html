@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiến nghị & Kết luận - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THIẾT LẬP CƠ BẢN */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body, html { height: 100vh; overflow: hidden; background-color: #000; }
+
+        
+        .slide-container {
+            width: 100%; height: 100vh;
+            /* Thay đổi URL ảnh nền tại đây */
+             background: 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png') center/cover;
+            padding: 25px 45px; color: white; position: relative;
+            display: flex; flex-direction: column;
+            animation: fadeInPage 1s ease-out;
+        }
+
+        /* 2. HEADER HaUI ĐỒNG BỘ */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 12px; margin-bottom: 20px;
+            animation: slideDown 0.8s ease-out;
+        }
+        .brand-container { display: flex; align-items: center; }
+        .logo-crop-wrapper { width: 45px; height: 45px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
+        .school-logo-img { width: 65px; height: auto; margin-top: -2px; }
+        .text-haui { font-size: 32px; font-weight: 900; color: #ffffff; margin-left: 8px; line-height: 1; }
+        .red-divider { width: 3px; height: 25px; background-color: #EE2D24; margin: 0 10px; }
+        .text-economics { font-size: 11px; font-weight: 700; color: #ffffff; text-transform: uppercase; line-height: 1.1; }
+        .slide-title-area h1 { font-size: 1.3rem; text-transform: uppercase; color: #FFD700; letter-spacing: 1.5px; text-align: right; }
+
+        /* 3. LAYOUT NỘI DUNG */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-rows: 1.2fr 0.8fr;
+            gap: 15px; flex-grow: 1;
+        }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        h2 { 
+            color: #FFD700; font-size: 1.1rem; margin-bottom: 12px; 
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+            border-left: 4px solid #FFD700; padding-left: 10px;
+        }
+
+        /* Policy List */
+        .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .policy-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; border-top: 2px solid #FFD700; }
+        .policy-item i { font-size: 1.2rem; color: #FFD700; margin-bottom: 8px; }
+        .policy-item h4 { font-size: 0.9rem; margin-bottom: 5px; color: #FFD700; }
+        .policy-item p { font-size: 0.85rem; line-height: 1.4; opacity: 0.9; }
+
+        /* Final Conclusion Box */
+        .conclusion-box {
+            background: rgba(0, 255, 127, 0.1);
+            border: 2px solid #00FF7F;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        .conclusion-box h3 { font-size: 1.4rem; color: #00FF7F; margin-bottom: 10px; }
+        .conclusion-box p { font-size: 1.05rem; font-weight: 600; line-height: 1.5; }
+
+        /* Limitations List */
+        ul.limitations { list-style: none; font-size: 0.9rem; }
+        ul.limitations li { margin-bottom: 8px; display: flex; gap: 10px; align-items: flex-start; }
+        ul.limitations li i { color: #FF4500; margin-top: 3px; }
+
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 8px; background: linear-gradient(90deg, #FFD700 60%, transparent 100%);
+        }
+
+        /* 4. ANIMATIONS */
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .glass-card:nth-child(1) { animation-delay: 0.2s; }
+        .glass-card:nth-child(2) { animation-delay: 0.4s; }
+        .glass-card:nth-child(3) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <div class="header">
+        <div class="brand-container">
+            <div class="logo-crop-wrapper">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <h1>Chương 3: KẾT QUẢ NGHIÊN CỨU VÀ THẢO LUẬN</h1>
+        <div style="text-align: right;">
+            <div class="highlight">Đào Thị Ngọc Mai</div>
+            <div style="font-size: 0.8rem;">Dữ liệu & Biến số</div>
+        </div>
+    </div>
+
+    <h2 style="color: #ffffff;"> 3.5 KIẾN NGHỊ & KẾT LUẬN</h2>
+    <div class="main-layout">
+        <div class="glass-card" style="grid-column: span 2;">
+            <h2><i class="fas fa-lightbulb"></i> Hàm ý chính sách và Kiến nghị</h2>
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h4>Hạ tầng số nông thôn</h4>
+                    <p>Mở rộng độ phủ Internet vùng sâu vùng xa; thúc đẩy ngân hàng số và ví điện tử để thu hẹp khoảng cách địa lý.</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h4>Giáo dục tài chính số</h4>
+                    <p>Nâng cao hiểu biết tài chính thông qua các chương trình đào tạo kỹ năng số cho người dân mọi lứa tuổi.</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Chính sách tín dụng</h4>
+                    <p>Hỗ trợ nhóm thu nhập thấp thông qua tín dụng ưu đãi và các sản phẩm tài chính vi mô linh hoạt.</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fas fa-microchip"></i>
+                    <h4>Chính sách dựa trên AI</h4>
+                    <p>Ứng dụng Machine Learning để nhận diện nhóm dân cư yếu thế, từ đó cá nhân hóa các gói hỗ trợ tài chính.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2><i class="fas fa-exclamation-triangle"></i> Hạn chế & Hướng đi</h2>
+            <ul class="limitations">
+                <li><i class="fas fa-clock"></i> <b>Dữ liệu cắt ngang:</b> Chưa phản ánh được biến động theo thời gian thực (Time-series).</li>
+                <li><i class="fas fa-database"></i> <b>Phạm vi biến:</b> Chưa bao quát hết các yếu tố văn hóa và chính sách quốc gia đặc thù.</li>
+                <li><i class="fas fa-brain"></i> <b>Tính diễn giải:</b> Khả năng giải thích của mô hình phi tuyến vẫn là một thách thức kỹ thuật.</li>
+            </ul>
+        </div>
+
+        <div class="glass-card conclusion-box">
+            <i class="fas fa-check-circle" style="font-size: 2.5rem; color: #00FF7F; margin-bottom: 10px;"></i>
+            <h3>TỔNG KẾT NGHIÊN CỨU</h3>
+            <p>XGBoost là mô hình dự báo <span style="color: #FFD700;">phù hợp và hiệu quả</span> nhất. <br> Chuyển đổi số và Giáo dục là chìa khóa thúc đẩy <span style="color: #FFD700;">Tài chính toàn diện</span> tại ĐNA.</p>
+        </div>
+    </div> 
+</div>
+<script src="MaiDan.js"></script>
+</body>
+</html>

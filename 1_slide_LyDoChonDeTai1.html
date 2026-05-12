@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời mở đầu - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body, html { height: 100vh; overflow: hidden; }
+
+        /* Nền nguyên bản từ ổ D */
+        .main-wrapper {
+            width: 100%; height: 100vh;
+             background: 
+                        url('file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/AnhNen.png') center/cover;
+            display: flex; flex-direction: column; padding: 30px 60px; color: white; position: relative;
+        }
+
+        /* --- HEADER ĐỒNG BỘ --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-crop-wrapper {
+            width: 50px; height: 50px;
+            overflow: hidden; display: flex;
+            justify-content: center; align-items: flex-start;
+        }
+
+        .school-logo-img { width: 70px; height: auto; margin-top: -2px; }
+
+        .text-haui {
+            font-size: 36px; font-weight: 900; color: #ffffff; 
+            margin-left: 8px; line-height: 1;
+        }
+
+        .red-divider {
+            width: 3px; height: 28px; background-color: #EE2D24; margin: 0 12px;
+        }
+
+        .text-economics {
+            font-size: 12px; font-weight: 700; color: #ffffff; 
+            text-transform: uppercase; line-height: 1.1;
+        }
+
+        .slide-title-area h1 {
+            font-size: 1.8rem; text-transform: uppercase; 
+            color: #FFD700; letter-spacing: 2px; text-align: right;
+        }
+        /* --- KẾT THÚC HEADER --- */
+
+        /* Layout Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 25px;
+            height: calc(100vh - 180px);
+        }
+
+        .side-panel { display: flex; flex-direction: column; gap: 20px; }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .glass-card:hover { border-color: #FFD700; transform: translateY(-5px); }
+
+        h3 { color: #FFD700; text-transform: uppercase; margin-bottom: 12px; font-size: 1.3rem; display: flex; align-items: center; gap: 12px; }
+        
+        .content-text { font-size: 1.2rem; line-height: 1.5; color: #ffffff; }
+        .highlight { color: #FFD700; font-weight: bold; }
+
+        ul { list-style: none; }
+        li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; font-size: 1.15rem; }
+        li i { color: #FFD700; margin-top: 4px; font-size: 1rem; }
+
+        .meta-box { display: flex; gap: 30px; margin-top: 5px; }
+        .meta-item b { color: #FFD700; display: block; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 3px; }
+        .meta-item p { font-size: 1.1rem; font-weight: 500; }
+
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 8px; background: linear-gradient(90deg, #FFD700 70%, transparent 100%);
+        }
+
+        .fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="header animate-up">
+        <div class="brand-container">
+            <div class="logo-crop-wrapper">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <div class="slide-title-area">
+            <h1 class="fade-in">LỜI MỞ ĐẦU</h1>
+        </div>
+        <div style="text-align: right;">
+           
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="side-panel">
+            <div class="glass-card fade-in" style="animation-delay: 0.1s;">
+                <h3><i class="fas fa-bullhorn"></i> 1. Lý do chọn đề tài</h3>
+                <p class="content-text">
+                    Tiếp cận tài chính là <span class="highlight">đòn bẩy kinh tế</span> quan trọng. Nghiên cứu sử dụng <span class="highlight">Machine Learning</span> để phân tích dữ liệu <span class="highlight">Global Findex 2021</span>, giải quyết các rào cản tài chính tại Đông Nam Á.
+                </p>
+            </div>
+            
+            <div class="glass-card fade-in" style="animation-delay: 0.3s; flex-grow: 1;">
+                <h3><i class="fas fa-bullseye"></i> 2. Mục tiêu nghiên cứu</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Xác định hệ thống các yếu tố then chốt.</li>
+                    <li><i class="fas fa-check-circle"></i> Thực nghiệm và so sánh hiệu năng các mô hình ML.</li>
+                    <li><i class="fas fa-check-circle"></i> Đề xuất chiến lược thúc đẩy tài chính toàn diện.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="glass-card fade-in" style="animation-delay: 0.5s;">
+                <h3><i class="fas fa-question-circle"></i> 3. Câu hỏi nghiên cứu</h3>
+                <div class="content-text">
+                    <p>• Những yếu tố nào ảnh hưởng mạnh nhất đến hành vi?</p>
+                    <p>• Thuật toán nào tối ưu trong việc dự báo khả năng tiếp cận?</p>
+                </div>
+            </div>
+
+            <div class="glass-card fade-in" style="animation-delay: 0.7s;">
+                <h3><i class="fas fa-map-marked-alt"></i> 4. Đối tượng & Phạm vi</h3>
+                <div class="meta-box">
+                    <div class="meta-item">
+                        <b>Đối tượng</b>
+                        <p>Hành vi tiếp cận tài chính cá nhân</p>
+                    </div>
+                    <div class="meta-item">
+                        <b>Phạm vi</b>
+                        <p>Khu vực ĐNA | Dữ liệu Global Findex</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card fade-in" style="animation-delay: 0.9s; flex-grow: 1;">
+                <h3><i class="fas fa-tools"></i> 5. Phương pháp nghiên cứu</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <ul>
+                        <li><i class="fas fa-microchip"></i> Random Forest, XGBoost</li>
+                        <li><i class="fas fa-search-dollar"></i> SHAP Interpretation</li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-database"></i> Tiền xử lý dữ liệu lớn</li>
+                        <li><i class="fas fa-chart-bar"></i> Đánh giá Accuracy & F1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-accent"></div>
+    <div style="position: absolute; bottom: 15px; right: 60px; font-size: 1rem; font-weight: bold; opacity: 0.8;">SVTH: Đào Thị Ngọc Mai - 2026</div>
+</div>
+<script src="MaiDan.js"></script>
+</body>
+</html>
