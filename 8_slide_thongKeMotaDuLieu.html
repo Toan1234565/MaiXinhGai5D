@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -211,4 +212,219 @@
 </div>
 <script src="MaiDan.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê mô tả - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THIẾT LẬP CƠ BẢN */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100vh; overflow: hidden;  }
+
+        .slide-container {
+            width: 100%; height: 100vh;
+            background: 
+                        url('Anh/AnhNen.png') center/cover;
+            padding: 25px 45px; color: white; position: relative;
+            display: flex; flex-direction: column;
+            animation: fadeInPage 1s ease-out;
+        }
+
+        /* 2. HEADER HaUI ĐỒNG BỘ */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 12px; margin-bottom: 20px;
+            animation: slideDown 0.8s ease-out;
+        }
+        .brand-container { display: flex; align-items: center; }
+        .logo-crop-wrapper { width: 45px; height: 45px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
+        .school-logo-img { width: 65px; height: auto; margin-top: -2px; }
+        .text-haui { font-size: 32px; font-weight: 900; color: #ffffff; margin-left: 8px; line-height: 1; }
+        .red-divider { width: 3px; height: 25px; background-color: #EE2D24; margin: 0 10px; }
+        .text-economics { font-size: 11px; font-weight: 700; color: #ffffff; text-transform: uppercase; line-height: 1.1; }
+        .slide-title-area h1 { font-size: 1.4rem; text-transform: uppercase; color: #FFD700; letter-spacing: 1.5px; text-align: right; }
+
+        /* 3. LAYOUT DASHBOARD */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            grid-template-rows: 0.8fr 1.2fr;
+            gap: 15px; flex-grow: 1;
+        }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        h2 { 
+            color: #FFD700; font-size: 1.1rem; margin-bottom: 12px; 
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+            border-left: 4px solid #FFD700; padding-left: 10px;
+        }
+
+        .highlight { color: #FFD700; font-weight: bold; }
+
+        /* Big Numbers Section */
+        .stats-row { display: flex; justify-content: space-around; text-align: center; margin-top: 10px; }
+        .stat-item { background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; width: 30%; border: 1px solid rgba(255,255,255,0.05); }
+        .stat-value { font-size: 1.6rem; font-weight: 800; color: #FFD700; display: block; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; }
+
+        /* Country Comparison Table */
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th { text-align: left; padding: 8px; background: rgba(255, 215, 0, 0.15); color: #FFD700; }
+        td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .bar-bg { width: 60px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; display: inline-block; margin-left: 10px; }
+        .bar-fill { height: 100%; background: #FFD700; border-radius: 3px; width: 0; animation: fillWidth 1.5s ease-out 1.2s forwards; }
+
+        /* Comparison Chart (Ownership vs Internet) */
+        .comparison-container { display: flex; align-items: center; justify-content: space-around; flex-grow: 1; margin-top: 15px; }
+        .circle-stat { position: relative; width: 120px; height: 120px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .circle-stat.gold { border-top-color: #FFD700; border-right-color: #FFD700; }
+        .circle-stat.blue { border-color: #00BFFF; }
+        .circle-val { font-size: 1.5rem; font-weight: 800; }
+
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 8px; background: linear-gradient(90deg, #FFD700 60%, transparent 100%);
+        }
+
+        /* 4. ANIMATIONS */
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fillWidth { from { width: 0; } to { width: var(--w); } }
+
+        .glass-card:nth-child(1) { animation-delay: 0.3s; }
+        .glass-card:nth-child(2) { animation-delay: 0.5s; }
+        .glass-card:nth-child(3) { animation-delay: 0.7s; }
+        .glass-card:nth-child(4) { animation-delay: 0.9s; }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <div class="header">
+        <div class="brand-container">
+            <div class="logo-crop-wrapper">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <h1>Chương 3: KẾT QUẢ NGHIÊN CỨU VÀ THẢO LUẬN</h1>
+        <div style="text-align: right;">
+            <div class="highlight">Đào Thị Ngọc Mai</div>
+            <div style="font-size: 0.8rem;">Dữ liệu & Biến số</div>
+        </div>
+        
+    </div>
+
+    <div class="main-layout">
+        <div class="glass-card">
+           <h2>3.1 THỐNG KÊ MÔ TẢ DỮ LIỆU</h2>
+            <h2><i class="fas fa-users"></i> Hồ sơ mẫu (N = 8.052)</h2>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-value">42.7</span>
+                    <span class="stat-label">Tuổi TB</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">46.5%</span>
+                    <span class="stat-label">Tỷ lệ Nữ</span>
+                </div>
+                <div class="stat-item" style="border-color: #FFD700;">
+                    <span class="stat-value">60.3%</span>
+                    <span class="stat-label">Nông thôn</span>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 15px; font-style: italic; opacity: 0.8;">
+                * Cơ cấu giới tính cân bằng (Nữ 46.5% - Nam 53.5%) giúp hạn chế sai lệch phân tích.
+            </p>
+        </div>
+
+        <div class="glass-card" style="grid-row: span 2;">
+            <h2><i class="fas fa-chart-line"></i> Chỉ số tiếp cận cốt lõi</h2>
+            <div class="comparison-container">
+                <div style="text-align: center;">
+                    <div class="circle-stat gold">
+                        <span class="circle-val">65.7%</span>
+                    </div>
+                    <p style="margin-top:10px; font-weight: bold; color:#FFD700;">Sở hữu tài khoản</p>
+                    <p style="font-size: 0.75rem; opacity: 0.7;">(Account Ownership)</p>
+                </div>
+                
+                <div style="font-size: 2rem; color: rgba(255,255,255,0.2);"><i class="fas fa-minus"></i></div>
+
+                <div style="text-align: center;">
+                    <div class="circle-stat blue" style="border-top-color: #00BFFF;">
+                        <span class="circle-val">77.6%</span>
+                    </div>
+                    <p style="margin-top:10px; font-weight: bold; color:#00BFFF;">Sử dụng Internet</p>
+                    <p style="font-size: 0.75rem; opacity: 0.7;">(Internet Usage)</p>
+                </div>
+            </div>
+            <div style="background: rgba(255,215,0,0.08); padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 0.95rem; line-height: 1.4;">
+                <i class="fas fa-info-circle highlight"></i> Khoảng cách giữa Internet (77.6%) và Sở hữu tài khoản (65.7%) cho thấy <span class="highlight">dư địa phát triển</span> cho các dịch vụ tài chính số tại khu vực.
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2><i class="fas fa-globe-asia"></i> Tỷ lệ theo quốc gia</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Quốc gia</th>
+                        <th>Tỷ lệ (%)</th>
+                        <th>Biểu đồ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Singapore</td>
+                        <td>98.5%</td>
+                        <td><div class="bar-bg"><div class="bar-fill" style="--w: 98.5%"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td>Thailand</td>
+                        <td>91.7%</td>
+                        <td><div class="bar-bg"><div class="bar-fill" style="--w: 91.7%"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td>Vietnam</td>
+                        <td>68.5%</td>
+                        <td><div class="bar-bg"><div class="bar-fill" style="--w: 68.5%"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td>Philippines</td>
+                        <td>48.9%</td>
+                        <td><div class="bar-bg"><div class="bar-fill" style="--w: 48.9%"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity: 0.6;">Cambodia</td>
+                        <td>32.3%</td>
+                        <td><div class="bar-bg"><div class="bar-fill" style="--w: 32.3%"></div></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+</div>
+<script src="MaiDan.js"></script>
+</body>
+>>>>>>> 378f6c0 (first commit)
 </html>

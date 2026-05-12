@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -155,4 +156,163 @@
 </div>
     <script src="MaiDan.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân tích SHAP & Tầm quan trọng của biến - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* THIẾT LẬP CHUNG */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100vh; overflow: hidden; }
+
+        .slide-container {
+            width: 100%; height: 100vh;
+           background: 
+                        url('Anh/AnhNen.png') center/cover;
+            padding: 30px 60px; color: white; position: relative;
+            display: flex; flex-direction: column;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* 2. HEADER ĐỒNG BỘ HaUI */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 12px; margin-bottom: 20px;
+            animation: slideDown 0.8s ease-out;
+        }
+        .brand-container { display: flex; align-items: center; }
+        .logo-crop-wrapper { width: 45px; height: 45px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
+        .school-logo-img { width: 65px; height: auto; margin-top: -2px; }
+        .text-haui { font-size: 32px; font-weight: 900; color: #ffffff; margin-left: 8px; line-height: 1; }
+        .red-divider { width: 3px; height: 25px; background-color: #EE2D24; margin: 0 10px; }
+        .text-economics { font-size: 11px; font-weight: 700; color: #ffffff; text-transform: uppercase; line-height: 1.1; }
+        .slide-title-area h1 { font-size: 1.4rem; text-transform: uppercase; color: #FFD700; letter-spacing: 1.5px; text-align: right; }
+
+
+        /* LAYOUT CHÍNH */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            flex-grow: 1;
+        }
+
+        .chart-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-box h3 {
+            font-size: 1rem; color: #FFD700; margin-bottom: 10px; text-align: center;
+            text-transform: uppercase;
+        }
+
+        .chart-img {
+            max-width: 100%; max-height: 220px;
+            border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+            object-fit: contain; background: #fff; padding: 5px;
+        }
+
+        /* PHÂN TÍCH CHI TIẾT */
+        .analysis-box {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
+
+        .insight-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #FFD700;
+            padding: 12px 18px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .insight-card h4 { color: #FFD700; font-size: 0.95rem; margin-bottom: 8px; }
+        .insight-card p { font-size: 0.85rem; line-height: 1.5; color: #e0e0e0; }
+
+        .highlight-text { color: #00FF7F; font-weight: bold; }
+
+        /* FOOTER */
+        .footer {
+            margin-top: auto; padding-top: 15px;
+            display: flex; justify-content: space-between;
+            font-size: 0.8rem; border-top: 1px solid rgba(255,215,0,0.2);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+    <div class="header">
+        <div class="brand-container">
+            <div class="logo-crop-wrapper">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <h1>Chương 3: KẾT QUẢ NGHIÊN CỨU VÀ THẢO LUẬN</h1>
+        <div style="text-align: right;">
+            <div class="highlight">Đào Thị Ngọc Mai</div>
+            <div style="font-size: 0.8rem;">Dữ liệu & Biến số</div>
+        </div>
+            
+    
+    </div>
+
+    <h2>3.3. Phân tích tầm quan trọng của biến (Feature Importance) và SHAP </h2>
+    <div class="content-grid">
+       
+        <div class="chart-box">
+            <h3><i class="fas fa-list-ol"></i> Feature Importance (Random Forest)</h3>
+            <img src="image_f16054.png" class="chart-img" alt="Feature Importance Plot">
+            <p style="font-size: 0.75rem; margin-top: 8px; color: #bbb;">Hình 3.14: Xếp hạng mức độ đóng góp của các biến</p>
+        </div>
+        <div class="chart-box">
+            <h3><i class="fas fa-project-diagram"></i> SHAP Summary Plot (XGBoost)</h3>
+            <img src="image_f1603b.png" class="chart-img" alt="SHAP Plot">
+            <p style="font-size: 0.75rem; margin-top: 8px; color: #bbb;">Hình 3.15: Chiều hướng và cường độ tác động của biến</p>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <div class="insight-card">
+            <h4><i class="fas fa-key"></i> Các biến dẫn đầu</h4>
+            <p>
+                <b class="highlight-text">1. Tuổi (age):</b> Ảnh hưởng lớn nhất nhưng mang tính <span class="highlight-text">phi tuyến</span>.<br>
+                <b class="highlight-text">2. Mobile Account:</b> Khẳng định vai trò then chốt của tài chính số.<br>
+                <b class="highlight-text">3. Học vấn (educ):</b> Trình độ cao tỷ lệ thuận với khả năng tiếp cận.
+            </p>
+        </div>
+        <div class="insight-card" style="border-left-color: #00FF7F;">
+            <h4><i class="fas fa-microscope"></i> Phân tích biến Tuổi (Age Insight)</h4>
+            <p>
+                Mặc dù tương quan tuyến tính âm (r = -0.10), SHAP cho thấy:<br>
+                • <b>Nhóm trẻ:</b> SHAP thấp/âm (Khả năng tiếp cận hạn chế).<br>
+                • <b>Nhóm lao động:</b> SHAP dương mạnh (Nhu cầu và thu nhập cao).<br>
+                • <b>Nhóm cao tuổi:</b> Tác động tích cực giảm dần.<br>
+                <i class="fas fa-info-circle"></i> <i>Kết luận:</i> Mô hình Machine Learning đã nắm bắt được quy luật thực tế mà các mô hình tuyến tính đơn giản bỏ qua.
+            </p>
+        </div>
+    </div>
+
+   
+</div>
+    <script src="MaiDan.js"></script>
+</body>
+>>>>>>> 378f6c0 (first commit)
 </html>

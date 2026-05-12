@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -182,4 +183,190 @@
 </div>
 <script src="MaiDan.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực trạng Đông Nam Á - Đào Thị Ngọc Mai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body, html { height: 100vh; overflow: hidden;  }
+
+        .dashboard-container {
+            width: 100%; height: 100vh;
+            background: 
+                        url('Anh/AnhNen.png') center/cover;
+            padding: 30px 50px; color: white; display: flex; flex-direction: column;
+            animation: fadeInPage 1s ease-out;
+        }
+
+        /* --- HEADER CHUẨN HaUI --- */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 10; border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 15px; margin-bottom: 25px;
+            animation: slideDown 0.8s ease-out;
+        }
+        .brand-container { display: flex; align-items: center; }
+        .logo-crop-wrapper { width: 50px; height: 50px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
+        .school-logo-img { width: 70px; height: auto; margin-top: -2px; }
+        .text-haui { font-size: 36px; font-weight: 900; color: #ffffff; margin-left: 8px; line-height: 1; }
+        .red-divider { width: 3px; height: 28px; background-color: #EE2D24; margin: 0 12px; }
+        .text-economics { font-size: 12px; font-weight: 700; color: #ffffff; text-transform: uppercase; line-height: 1.1; }
+        .slide-title-area h1 { font-size: 1.5rem; text-transform: uppercase; color: #FFD700; letter-spacing: 1.5px; }
+
+        /* --- LAYOUT GRID --- */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            grid-template-rows: 1.2fr 0.8fr;
+            gap: 15px; flex-grow: 1; margin-bottom: 20px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 20px; display: flex; flex-direction: column;
+            opacity: 0; animation: slideInUp 0.8s ease-out forwards;
+        }
+        .card:hover { border-color: #FFD700; transform: translateY(-3px); transition: 0.3s; }
+
+        h2 { 
+            font-size: 1.2rem; color: #FFD700; margin-bottom: 15px; 
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+        }
+
+        .highlight { color: #FFD700; font-weight: bold; }
+        .text-small { font-size: 1.05rem; line-height: 1.5; color: #f0f0f0; }
+
+        /* --- BIỂU ĐỒ THANH ANIMATION --- */
+        .bar-chart { margin-top: 10px; }
+        .bar-group { margin-bottom: 12px; }
+        .bar-label { font-size: 0.9rem; display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .bar-bg { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .bar-fill { 
+            height: 100%; background: linear-gradient(90deg, #FFD700, #FFA500); 
+            border-radius: 4px; width: 0; animation: fillBar 2s cubic-bezier(0.1, 0.5, 0.5, 1) forwards;
+        }
+
+        /* Icon Box */
+        .status-box {
+            display: flex; gap: 12px; margin-top: 10px;
+            padding: 12px; border-radius: 10px; background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .status-box i { font-size: 1.3rem; color: #FFD700; }
+
+        .danger-text { color: #FF4500; font-weight: bold; }
+        .footer-accent {
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 8px; background: linear-gradient(90deg, #FFD700 60%, transparent 100%);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fillBar { from { width: 0; } to { width: var(--target-width); } }
+
+        /* Delay cho từng card */
+        .card:nth-child(1) { animation-delay: 0.3s; }
+        .card:nth-child(2) { animation-delay: 0.5s; }
+        .card:nth-child(3) { animation-delay: 0.7s; }
+        .card:nth-child(4) { animation-delay: 0.9s; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header">
+        <div class="brand-container">
+            <div class="logo-crop-wrapper">
+                <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+            </div>
+            <div class="text-haui">HaUI</div>
+            <div class="red-divider"></div>
+            <div class="text-economics">SCHOOL OF<br>ECONOMICS</div>
+        </div>
+        <<div class="slide-title-area">
+            <h1>CHƯƠNG 1: TỔNG QUAN NGHIÊN CỨU VÀ CƠ SỞ LÝ LUẬN </h1>
+        </div>
+        <div style="text-align: right;">
+           
+        </div>
+       
+    </div>
+    <h2>1.3 THỰC TRẠNG TÀI CHÍNH ĐÔNG NAM Á</h2>
+    <div class="main-layout">
+        <div class="card" style="grid-row: span 2;">
+            <h2><i class="fas fa-globe-asia"></i> 1.3.1 Thực trạng chung</h2>
+            <div class="text-small">
+                <p>• <span class="highlight">Phát triển:</span> VN & Indonesia có tốc độ tăng trưởng người dùng ví điện tử nhanh nhất khu vực.</p>
+                <p style="margin: 8px 0;">• <span class="highlight">Bất đối xứng:</span> Singapore đã bão hòa công nghệ, trong khi các nước Mekong đang bắt đầu số hóa.</p>
+            </div>
+            
+            <div class="bar-chart">
+                <p class="highlight" style="font-size: 0.85rem; margin-top: 10px;">Dự báo sử dụng Fintech 2030:</p>
+                <div class="bar-group">
+                    <div class="bar-label"><span>Philippines</span> <span>63%</span></div>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 63%; animation-delay: 1.2s;"></div></div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar-label"><span>Indonesia</span> <span>49%</span></div>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 49%; animation-delay: 1.4s;"></div></div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar-label"><span>Việt Nam</span> <span>32%</span></div>
+                    <div class="bar-bg"><div class="bar-fill" style="--target-width: 32%; animation-delay: 1.6s;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="grid-column: span 2;">
+            <h2><i class="fas fa-chart-pie"></i> 1.3.2 Vai trò của tài chính toàn diện</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="status-box">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div class="text-small">
+                        <p class="highlight">An sinh xã hội</p>
+                        <p style="font-size: 0.95rem;">Giảm nghèo, giúp các hộ gia đình ứng phó với rủi ro tài chính.</p>
+                    </div>
+                </div>
+                <div class="status-box">
+                    <i class="fas fa-rocket"></i>
+                    <div class="text-small">
+                        <p class="highlight">Động lực tăng trưởng</p>
+                        <p style="font-size: 0.95rem;">Hỗ trợ vốn cho SME, tạo việc làm và kích cầu tiêu dùng nội địa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-door-open"></i> 1.3.3 Cơ hội</h2>
+            <ul class="text-small" style="list-style: none;">
+                <li style="margin-bottom: 8px;"><i class="fas fa-check-circle highlight"></i> Dân số trẻ & ưu tiên Mobile.</li>
+                <li><i class="fas fa-check-circle highlight"></i> Khung pháp lý Sandbox linh hoạt.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-exclamation-triangle"></i> 1.3.4 Thách thức</h2>
+            <ul class="text-small" style="list-style: none;">
+                <li style="margin-bottom: 8px;"><i class="fas fa-times-circle danger-text"></i> Hạ tầng số vùng sâu vùng xa.</li>
+                <li><i class="fas fa-times-circle danger-text"></i> Rủi ro bảo mật dữ liệu cá nhân.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-accent"></div>
+    <div style="position: absolute; bottom: 15px; right: 50px; font-size: 0.9rem; font-weight: bold; opacity: 0.8;">SVTH: ĐÀO THỊ NGỌC MAI</div>
+</div>
+<script src="MaiDan.js"></script>
+</body>
+>>>>>>> 378f6c0 (first commit)
 </html>

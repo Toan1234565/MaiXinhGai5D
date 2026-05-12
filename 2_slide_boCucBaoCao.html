@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -234,4 +235,242 @@
     </div>
 <script src="MaiDan.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nội dung Khóa luận - Đào Thị Ngọc Mai</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #001a33; 
+        }
+
+        .report-container {
+            width: 100vw;
+            height: 100vh;
+           background: 
+                        url('Anh/AnhNen.png') center/cover;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 60px;
+            color: white;
+            position: relative;
+        }
+
+        /* --- PHẦN LOGO MỚI CẬP NHẬT --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.4);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-crop-wrapper {
+            width: 50px;   
+            height: 50px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .school-logo-img {
+            width: 70px; 
+            height: auto;
+            margin-top: -2px;
+        }
+
+        .text-haui {
+            font-size: 36px; 
+            font-weight: 900;
+            color: #ffffff; 
+            margin-left: 8px;
+            line-height: 1;
+        }
+
+        .red-divider {
+            width: 3px;
+            height: 28px;
+            background-color: #EE2D24;
+            margin: 0 12px;
+        }
+
+        .text-economics {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff; 
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .student-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* --- KẾT THÚC PHẦN LOGO --- */
+
+        .section-title {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title p {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .section-title h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            flex-grow: 1;
+            align-items: start;
+            z-index: 10;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px 25px;
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            animation: fadeInUp 1s ease both;
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #FFD700;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-line {
+            width: 50px;
+            height: 3px;
+            background: #FFD700;
+            margin-bottom: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .content-card:hover .card-line {
+            width: 100%;
+        }
+
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #FFD700 75%, transparent 75%);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container">
+        <div class="header animate-up">
+            <div class="brand-container">
+                <div class="logo-crop-wrapper">
+                    <img src="file:///D:/Tiếng trung/DaoNgocMaiNe/Anh/LogoHaui.jpg" class="school-logo-img" alt="Logo">
+                </div>
+                <div class="text-haui">HaUI</div>
+                <div class="red-divider"></div>
+                <div class="text-economics">
+                    SCHOOL OF<br>ECONOMICS
+                </div>
+            </div>
+            <div class="student-name">SVTH: Đào Thị Ngọc Mai</div>
+        </div>
+
+        <div class="section-title animate-up" style="animation-delay: 0.1s;">
+            <p>Nội dung báo cáo</p>
+            <h1>CÁC PHẦN CHÍNH CỦA KHÓA LUẬN</h1>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card" style="animation-delay: 0.2s;">
+                <div class="card-title">1. Tổng quan nghiên cứu & Cơ sở lý luận</div>
+                <div class="card-line"></div>
+                <p style="font-size: 1.05rem; color: #e0e0e0; line-height: 1.6;">
+                    Phân tích bối cảnh, các học thuyết tài chính và lược khảo các nghiên cứu liên quan đến tiếp cận dịch vụ tài chính.
+                </p>
+            </div>
+
+            <div class="content-card" style="animation-delay: 0.4s;">
+                <div class="card-title">2. Phương pháp <br> nghiên cứu</div>
+                <div class="card-line"></div>
+                <p style="font-size: 1.05rem; color: #e0e0e0; line-height: 1.6;">
+                    Chi tiết về bộ dữ liệu Global Findex 2021 và quy trình xây dựng, tối ưu hóa các thuật toán Machine Learning.
+                </p>
+            </div>
+
+            <div class="content-card" style="animation-delay: 0.6s;">
+                <div class="card-title">3. Kết quả nghiên cứu & Thảo luận</div>
+                <div class="card-line"></div>
+                <p style="font-size: 1.05rem; color: #e0e0e0; line-height: 1.6;">
+                    Trình bày các phát hiện quan trọng về các yếu tố ảnh hưởng, đánh giá hiệu năng mô hình và đề xuất giải pháp.
+                </p>
+            </div>
+        </div>
+
+        <div class="bottom-bar"></div>
+    </div>
+<script src="MaiDan.js"></script>
+</body>
+>>>>>>> 378f6c0 (first commit)
 </html>
