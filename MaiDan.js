@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
         /**
          * 1. XỬ LÝ MENU & SIDEBAR
